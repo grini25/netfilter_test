@@ -79,8 +79,7 @@ static u_int32_t print_pkt (struct nfq_data *tb, int *result)
 	ret = nfq_get_payload(tb, &data);
 	if (ret >= 0) {
 		get_host_name(data);
-		if(check_harmful()) {
-			printf("in pkd? %d\n", check_harmful()); *result = 1;}
+		if(check_harmful()) *result = 1;
 		else *result = 0;
 	}
 	fputc('\n', stdout);
